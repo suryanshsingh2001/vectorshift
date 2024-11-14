@@ -1,42 +1,56 @@
-// frontend/src/nodes/TextNode.js
+// TextNode.js
 
 import { BaseNode } from './BaseNode';
-import { useState, useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Position } from 'reactflow';
+import useAutosizeTextArea from '../hooks/resizeTextArea';
+import { extractVariables, highlightVariables } from '../lib/utils';
 
 export const TextNode = ({ id, data }) => {
   const [text, setText] = useState(data?.text || '');
-  const [handles, setHandles] = useState([{ type: 'source', position: Position.Left, id: 'value',  }]);
-  const [inputFields, setInputFields] = useState([]);
+  const [variables, setVariables] = useState([]);
+  const textAreaRef = useRef(null);
 
+  // Autosize the textarea
+  useAutosizeTextArea(textAreaRef.current, text);
+
+  // Update variables based on the text input
   useEffect(() => {
-    const variableMatches = text.match(/{{\s*[\w]+\s*}}/g);
-    if (variableMatches) {
-      const newHandles = variableMatches.map((variable, index) => ({
-        type: 'target',
-        position: Position.Left,
-        id: variable.replace(/[{}]/g, '').trim(),
-        style: { top: `${(index + 1) * 20}px` },
-        title:data.text
-      }));
-      setHandles([{ type: 'source', position: Position.Right, id: 'value' }, ...newHandles]);
-    } else {
-      setHandles([{ type: 'source', position: Position.Right, id: 'value' }]);
-    }
+    const newVariables = extractVariables(text);
+    setVariables(newVariables);
   }, [text]);
 
-  useEffect(() => {
-    setInputFields([
-      {
-        name: 'text',
-        label: 'Text',
-        type: 'textarea',
-        onChange: setText
-      }
-    ]);
-  }, []);
+  // Define handles: Right side for output, Left side for each variable
+  const handles = [
+    { type: 'source', position: Position.Right, id: 'output' },
+    ...variables.map((variable) => ({
+      type: 'target',
+      position: Position.Left,
+      id: `var-${variable}`,
+      style: { top: `${20 + variables.indexOf(variable) * 20}px` },
+    })),
+  ];
 
-  const styles = "bg-pink-100 rounded-lg border border-pink-300 resize-none";
+  const inputFields = [
+    {
+      name: 'text',
+      label: 'Text Input',
+      type: 'textarea',
+      onChange: setText,
+      ref: textAreaRef,
+    },
+  ];
 
-  return <BaseNode id={id} data={{ ...data, text }} type="Text" handles={handles} inputFields={inputFields} styles={styles} />;
+  const styles = "bg-indigo-100 rounded-lg border border-indigo-300";
+
+  return (
+    <BaseNode
+      id={id}
+      data={{ ...data, text }}
+      type="Text"
+      handles={handles}
+      inputFields={inputFields}
+      styles={styles}
+    />
+  );
 };
