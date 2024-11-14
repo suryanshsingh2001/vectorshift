@@ -1,5 +1,5 @@
 import { Handle } from 'reactflow';
-import { useState, useEffect, useRef } from 'react';
+import { useState, } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null, styles = '', children }) => {
