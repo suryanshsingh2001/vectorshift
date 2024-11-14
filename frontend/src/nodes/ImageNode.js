@@ -8,7 +8,7 @@ export const ImageNode = ({ id, data }) => {
   const [imageType, setImageType] = useState(data?.type || 'JPEG');
 
   const handles = [
-    { type: 'source', position: Position.Right, id: 'value' }
+    { type: 'source', position: Position.Right, id: 'value', style: { background: 'red', width: '10px', height: '10px' } }
   ];
 
   const inputFields = [

@@ -8,7 +8,9 @@ export const InputNode = ({ id, data }) => {
   const [inputType, setInputType] = useState(data?.type || 'Text');
 
   const handles = [
-    { type: 'source', position: Position.Right, id: 'value', style: { background: 'red' } }
+    { type: 'source', position: Position.Right, id: 'value', style: { background: 'red', 
+    width: '10px', height: '10px'
+     } }
   ];
 
   const inputFields = [

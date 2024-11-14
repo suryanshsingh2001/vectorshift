@@ -5,8 +5,13 @@ import { Position } from 'reactflow';
 
 export const LLMNode = ({ id, data }) => {
   const handles = [
-    { type: 'target', position: Position.Left, id: 'system', style: { top: '33%' } },
-    { type: 'target', position: Position.Right, id: 'prompt', style: { top: '66%' } },
+    {
+      type: 'target', position: Position.Left, id: 'system', style: {
+        top: '33%', height: '10px', width: '10px'
+
+      }
+    },
+    { type: 'target', position: Position.Right, id: 'prompt', style: { top: '66%', height: '10px', width: '10px' } },
   ];
 
   // LLMNode does not require any additional input fields
