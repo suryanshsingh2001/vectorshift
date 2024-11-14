@@ -12,5 +12,5 @@ export const TextNode = ({ id, data }) => {
   // TextNode does not require any additional input fields
   const inputFields = [];
 
-  return <BaseNode id={id} data={data} type="Text" handles={handles} inputFields={inputFields} />;
+  return <BaseNode id={id} data={data} type="Text" handles={handles} inputFields={inputFields} label="Text" />;
 };

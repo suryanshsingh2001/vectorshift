@@ -3,7 +3,7 @@
 import { Handle } from 'reactflow';
 import { useState } from 'react';
 
-export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true }) => {
+export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, label ="Name " }) => {
   const [currName, setCurrName] = useState(data?.name || id);
 
   const handleNameChange = (e) => {
@@ -27,7 +27,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
       <div>
         {showNameInput && (
           <label>
-            Name:
+            {label}:
             <input type="text" value={currName} onChange={handleNameChange} />
           </label>
         )}
