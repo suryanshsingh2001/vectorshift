@@ -1,9 +1,9 @@
 // frontend/src/nodes/BaseNode.js
 
-import { Handle } from 'reactflow';
+import { Handle, Position } from 'reactflow';
 import { useState } from 'react';
 
-export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, label ="Name " }) => {
+export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null }) => {
   const [currName, setCurrName] = useState(data?.name || id);
 
   const handleNameChange = (e) => {
@@ -27,7 +27,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
       <div>
         {showNameInput && (
           <label>
-            {label}:
+            Name:
             <input type="text" value={currName} onChange={handleNameChange} />
           </label>
         )}
@@ -47,6 +47,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
             )}
           </label>
         ))}
+        {message && <div><span>{message}</span></div>}
       </div>
     </div>
   );

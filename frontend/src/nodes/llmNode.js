@@ -13,5 +13,5 @@ export const LLMNode = ({ id, data }) => {
   // LLMNode does not require any additional input fields
   const inputFields = [];
 
-  return <BaseNode id={id} data={data} type="LLM" handles={handles} inputFields={inputFields} showNameInput={false} />;
+  return <BaseNode id={id} data={data} type="LLM" handles={handles} inputFields={inputFields} showNameInput={false} message="This is a LLM." />;
 };
