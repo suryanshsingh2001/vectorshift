@@ -6,7 +6,7 @@ import { Position } from 'reactflow';
 
 export const TextNode = ({ id, data }) => {
   const [text, setText] = useState(data?.text || '');
-  const [handles, setHandles] = useState([{ type: 'source', position: Position.Right, id: 'value' }]);
+  const [handles, setHandles] = useState([{ type: 'source', position: Position.Left, id: 'value',  }]);
   const [inputFields, setInputFields] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,8 @@ export const TextNode = ({ id, data }) => {
         type: 'target',
         position: Position.Left,
         id: variable.replace(/[{}]/g, '').trim(),
-        style: { top: `${(index + 1) * 20}px` }
+        style: { top: `${(index + 1) * 20}px` },
+        title:data.text
       }));
       setHandles([{ type: 'source', position: Position.Right, id: 'value' }, ...newHandles]);
     } else {
