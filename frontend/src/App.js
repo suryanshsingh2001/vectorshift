@@ -9,10 +9,9 @@ function App() {
       <PipelineToolbar />
       <main className="flex-grow p-4">
         <PipelineUI />
-      </main>
-      <footer className="bg-gray-800 text-white p-4 text-center">
         <SubmitButton />
-      </footer>
+
+      </main>
     </div>
   );
 }

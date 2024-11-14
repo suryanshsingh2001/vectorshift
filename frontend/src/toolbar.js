@@ -4,14 +4,14 @@ import { ChevronsLeftRight, Brain, ArrowUpRight, Type, Hexagon, Image, Braces } 
 
 export const PipelineToolbar = () => {
   return (
-      <div className="flex space-x-4 bg-transparent p-2 rounded-lg shadow-md">
-        <DraggableNode type="customInput" label="Input" icon={ChevronsLeftRight} />
-        <DraggableNode type="llm" label="LLM" icon={Brain} />
-        <DraggableNode type="customOutput" label="Output" icon={ArrowUpRight} />
-        <DraggableNode type="text" label="Text" icon={Type} />
-        <DraggableNode type="custom" label="Custom" icon={Hexagon} />
-        <DraggableNode type="image" label="Image" icon={Image} />
-        <DraggableNode type="json" label="JSON" icon={Braces} />
-      </div>
+    <div className="flex space-x-4 bg-base-100 p-4 rounded-lg shadow-lg">
+      <DraggableNode type="customInput" label="Input" icon={ChevronsLeftRight} />
+      <DraggableNode type="llm" label="LLM" icon={Brain} />
+      <DraggableNode type="customOutput" label="Output" icon={ArrowUpRight} />
+      <DraggableNode type="text" label="Text" icon={Type} />
+      <DraggableNode type="custom" label="Custom" icon={Hexagon} />
+      <DraggableNode type="image" label="Image" icon={Image} />
+      <DraggableNode type="json" label="JSON" icon={Braces} />
+    </div>
   );
 };

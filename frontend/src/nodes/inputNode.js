@@ -4,7 +4,6 @@ import { BaseNode } from './BaseNode';
 import { useState } from 'react';
 import { Position } from 'reactflow';
 
-
 export const InputNode = ({ id, data }) => {
   const [inputType, setInputType] = useState(data?.type || 'Text');
 
@@ -25,5 +24,7 @@ export const InputNode = ({ id, data }) => {
     }
   ];
 
-  return <BaseNode id={id} data={{ ...data, type: inputType }} type="Input" handles={handles} inputFields={inputFields} />;
+  const styles = "bg-purple-100 rounded-lg  border border-purple-300";
+
+  return <BaseNode id={id} data={{ ...data, type: inputType }} type="Input" handles={handles} inputFields={inputFields} styles={styles} />;
 };

@@ -36,7 +36,7 @@ export const TextNode = ({ id, data }) => {
     ]);
   }, []);
 
-  const styles = "resize-none";
+  const styles = "bg-pink-100 rounded-lg border border-pink-300 resize-none";
 
   return <BaseNode id={id} data={{ ...data, text }} type="Text" handles={handles} inputFields={inputFields} styles={styles} />;
 };

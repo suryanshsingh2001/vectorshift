@@ -26,5 +26,7 @@ export const CustomNode = ({ id, data }) => {
     }
   ];
 
-  return <BaseNode id={id} data={{ ...data, type: customType }} type="Custom" handles={handles} inputFields={inputFields} />;
+  const styles = "bg-yellow-100 rounded-lg  border border-yellow-300";
+
+  return <BaseNode id={id} data={{ ...data, type: customType }} type="Custom" handles={handles} inputFields={inputFields} styles={styles} />;
 };
