@@ -1,47 +1,29 @@
-// outputNode.js
+// frontend/src/nodes/OutputNode.js
 
+import { BaseNode } from './BaseNode';
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
+
 
 export const OutputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
-  const [outputType, setOutputType] = useState(data.outputType || 'Text');
+  const [outputType, setOutputType] = useState(data?.type || 'Text');
 
-  const handleNameChange = (e) => {
-    setCurrName(e.target.value);
-  };
+  const handles = [
+    { type: 'target', position: Position.Left, id: 'value' }
+  ];
 
-  const handleTypeChange = (e) => {
-    setOutputType(e.target.value);
-  };
+  const inputFields = [
+    {
+      name: 'type',
+      label: 'Type',
+      type: 'select',
+      options: [
+        { value: 'Text', label: 'Text' },
+        { value: 'Image', label: 'Image' }
+      ],
+      onChange: setOutputType
+    }
+  ];
 
-  return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-value`}
-      />
-      <div>
-        <span>Output</span>
-      </div>
-      <div>
-        <label>
-          Name:
-          <input 
-            type="text" 
-            value={currName} 
-            onChange={handleNameChange} 
-          />
-        </label>
-        <label>
-          Type:
-          <select value={outputType} onChange={handleTypeChange}>
-            <option value="Text">Text</option>
-            <option value="File">Image</option>
-          </select>
-        </label>
-      </div>
-    </div>
-  );
-}
+  return <BaseNode id={id} data={{ ...data, type: outputType }} type="Output" handles={handles} inputFields={inputFields} />;
+};
