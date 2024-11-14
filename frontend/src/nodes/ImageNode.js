@@ -25,5 +25,7 @@ export const ImageNode = ({ id, data }) => {
     }
   ];
 
-  return <BaseNode id={id} data={{ ...data, type: imageType }} type="Image" handles={handles} inputFields={inputFields} />;
+  const styles = "bg-blue-100 rounded-lg p-2";
+
+  return <BaseNode id={id} data={{ ...data, type: imageType }} type="Image" handles={handles} inputFields={inputFields} styles={styles} />;
 };

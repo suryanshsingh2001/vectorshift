@@ -20,5 +20,7 @@ export const JSONNode = ({ id, data }) => {
     }
   ];
 
-  return <BaseNode id={id} data={{ ...data, json: jsonData }} type="JSON" handles={handles} inputFields={inputFields} />;
+  const styles = "bg-teal-100 rounded-lg p-2";
+
+  return <BaseNode id={id} data={{ ...data, json: jsonData }} type="JSON" handles={handles} inputFields={inputFields} styles={styles} />;
 };
