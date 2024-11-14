@@ -28,5 +28,13 @@ export const CustomNode = ({ id, data }) => {
 
   const styles = "bg-yellow-100 rounded-lg  border border-yellow-300";
 
-  return <BaseNode id={id} data={{ ...data, type: customType }} type="Custom" handles={handles} inputFields={inputFields} styles={styles} />;
+  return <BaseNode id={id} data={{ ...data, type: customType }} type="Custom" handles={handles} inputFields={inputFields} styles={styles} >
+
+    <div className="flex flex-col gap-2 space-y-2">
+
+     <button className="btn btn-sm btn-primary">Click me</button>
+     
+
+    </div>
+  </BaseNode>;
 };

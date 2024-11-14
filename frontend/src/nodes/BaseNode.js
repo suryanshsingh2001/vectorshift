@@ -1,10 +1,8 @@
-// frontend/src/components/BaseNode.js
-
 import { Handle } from 'reactflow';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null, styles = '' }) => {
+export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null, styles = '', children }) => {
   const [currName, setCurrName] = useState(data?.name || id);
 
   const handleNameChange = (e) => {
@@ -45,7 +43,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
           )}
           {inputFields.map((field) => (
             <div key={field.name} className="flex flex-col text-sm text-gray-500">
-              <label className="flex flex-col" htmlFor={field.name}>
+              <label htmlFor={field.name}>
                 {field.label}:
               </label>
               {field.type === 'select' ? (
@@ -80,6 +78,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
             </div>
           ))}
           {message && <div className="text-sm text-gray-400 mt-2">{message}</div>}
+          {children}
         </div>
       </div>
     </div>
