@@ -15,7 +15,8 @@ export const DraggableNode = ({ type, label, icon: IconComponent }) => {
     <div
       className={`
         draggable-node cursor-grab bg-white hover:bg-gray-200 
-        transition-all duration-300 ease-in-out rounded-full p-4 
+        transition-all duration-300 ease-in-out rounded-2xl p-4
+        space-x-0.5 w-20 h-20
         flex flex-col items-center justify-center gap-2 shadow-md
         ${isDragging ? 'scale-105 shadow-lg' : 'scale-100'}
       `}
