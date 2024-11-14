@@ -4,8 +4,7 @@ import { ChevronsLeftRight, Brain, ArrowUpRight, Type, Hexagon, Image, Braces } 
 
 export const PipelineToolbar = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-12 gap-2">
+      <div className="flex justify-center space-x-4 bg-transparent p-2 rounded-lg shadow-md">
         <DraggableNode type="customInput" label="Input" icon={ChevronsLeftRight} />
         <DraggableNode type="llm" label="LLM" icon={Brain} />
         <DraggableNode type="customOutput" label="Output" icon={ArrowUpRight} />
@@ -14,6 +13,5 @@ export const PipelineToolbar = () => {
         <DraggableNode type="image" label="Image" icon={Image} />
         <DraggableNode type="json" label="JSON" icon={Braces} />
       </div>
-    </div>
   );
 };
