@@ -1,11 +1,11 @@
 // frontend/src/toolbar.js
 
 import React, { useState } from 'react';
-import { nodeConfig } from './lib/nodeConfig';
-import { DraggableNode } from './components/shared/draggableNode';
+import { nodeConfig } from '../../lib/nodeConfig';
+import { DraggableNode } from '../shared/draggableNode';
 import { Settings } from 'lucide-react';
 
-export const PipelineToolbar = () => {
+ const PipelineToolbar = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -68,3 +68,5 @@ export const PipelineToolbar = () => {
     </>
   );
 };
+
+export default PipelineToolbar;

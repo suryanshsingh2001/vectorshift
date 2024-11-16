@@ -1,10 +1,9 @@
 import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
-import { useStore } from './store';
+import { useStore } from '../../data/store';
 import { shallow } from 'zustand/shallow';
 import 'reactflow/dist/style.css';
-import { nodeTypes } from './nodes/NodeTypes';
-import { SubmitButton } from './submit';
+import { nodeTypes } from '../../nodes/NodeTypes';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -19,7 +18,7 @@ const selector = (state) => ({
   onConnect: state.onConnect,
 });
 
-export const PipelineUI = () => {
+ const PipelineUI = () => {
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const {
@@ -100,3 +99,5 @@ export const PipelineUI = () => {
     </div>
   );
 }
+
+export default PipelineUI;

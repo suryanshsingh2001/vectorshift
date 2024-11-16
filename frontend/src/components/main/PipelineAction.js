@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useStore } from './store';
+import { useStore } from '../../data/store';
 import { CheckCircle, XCircle, Circle, AlertTriangle } from 'lucide-react';
 
-export const SubmitButton = () => {
+const PipelineAction = () => {
   const { nodes, edges, resetNodes } = useStore((state) => ({
     nodes: state.nodes,
     edges: state.edges,
@@ -98,3 +98,6 @@ export const SubmitButton = () => {
     </div>
   );
 };
+
+
+export default PipelineAction;
