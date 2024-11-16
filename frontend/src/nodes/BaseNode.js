@@ -9,7 +9,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
     setCurrName(e.target.value);
   };
 
-  const baseStyles = "card card-compact lg:card-side w-60 bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300";
+  const baseStyles = "card card-compact lg:card-side w-55 bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300";
   const mergedStyles = twMerge(baseStyles, styles);
 
   return (

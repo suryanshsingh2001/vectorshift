@@ -1,35 +1,34 @@
-import { Circle } from 'lucide-react';
 import React, { useState } from 'react';
 
-export const DraggableNode = ({ type, label, icon: IconComponent = null  }) => {
-  const [isDragging, setIsDragging] = useState(false);
+export function DraggableNode({ type, label, icon: IconComponent, category, description }) {
+  const [isDragging, setIsDragging] = useState(false)
+  console.log(description)
 
   const onDragStart = (event, nodeType) => {
-    const appData = { nodeType };
-    event.dataTransfer.setData('application/reactflow', JSON.stringify(appData));
-    event.dataTransfer.effectAllowed = 'move';
-    setIsDragging(true);
-  };
+    event.dataTransfer.setData('application/reactflow', JSON.stringify({ nodeType }))
+    event.dataTransfer.effectAllowed = 'move'
+    setIsDragging(true)
+  }
 
   return (
     <div
+      data-tip={description}
       className={`
-        draggable-node cursor-grab bg-white hover:bg-gray-200 
-        transition-all duration-300 ease-in-out rounded-2xl p-4
-        space-x-0.5 w-20 h-20
-        flex flex-col items-center justify-center gap-2 shadow-md
-        ${isDragging ? 'scale-105 shadow-lg' : 'scale-100'}
+        tooltip
+        tooltip-bottom
+        draggable-node cursor-grab bg-white hover:bg-base-200 transition-all duration-300 ease-in-out rounded-lg p-2 w-24 h-22 space-x-0.5
+        flex flex-col items-center justify-center gap-2 shadow-sm hover:shadow-md
+        ${isDragging ? 'ring-2 ring-primary' : ''}
       `}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={() => setIsDragging(false)}
       draggable
     >
 
-      {IconComponent ?
-        <IconComponent className="text-gray-600 w-6 h-6" /> : <Circle className="text-gray-600 w-6 h-6" />
-
-      }
-      <span className="text-gray-700 text-xs font-medium">{label}</span>
+      <div className="rounded-full bg-primary/10 p-2" >
+        <IconComponent className="text-primary w-6 h-6" />
+      </div>
+      <span className="text-sm font-medium text-center line-clamp-2">{label}</span>
     </div>
-  );
-};
+  )
+}
