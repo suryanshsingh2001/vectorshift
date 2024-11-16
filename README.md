@@ -1,4 +1,4 @@
-# VectorShift Frontend Technical Assessment
+# VectorShift Technical Assessment
 
 This document explains how the tasks for the VectorShift frontend technical assessment were completed. It includes detailed explanations for each part of the assessment and the documentation for the `BaseNode` component used in the project.
 
