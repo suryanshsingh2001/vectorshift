@@ -5,6 +5,7 @@ import { TextNode } from "./textNode";
 import { CustomNode } from "./customNode";
 import { ImageNode } from "./ImageNode";
 import { JSONNode } from "./JSONNode";
+import { TimerNode } from "./TimerNode";
 
 
 
@@ -15,5 +16,6 @@ export const nodeTypes = {
     text: TextNode,
     custom: CustomNode,
     image: ImageNode,
-    json : JSONNode
+    json : JSONNode,
+    timer : TimerNode,
   };
