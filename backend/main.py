@@ -46,6 +46,10 @@ async def parse_pipeline(pipeline: Pipeline):
     graph = defaultdict(list)
     in_degree = defaultdict(int)
 
+    # Initialize all nodes in in_degree
+    for node in pipeline.nodes:
+        in_degree[node.id] = 0
+
     for edge in pipeline.edges:
         graph[edge.source].append(edge.target)
         in_degree[edge.target] += 1

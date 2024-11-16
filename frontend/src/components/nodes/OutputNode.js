@@ -8,7 +8,7 @@ export const OutputNode = ({ id, data }) => {
   const [outputType, setOutputType] = useState(data?.type || 'Text');
 
   const handles = [
-    { type: 'target', position: Position.Left, id: 'value', style: { background: 'green', width: '10px', height: '10px' } }
+    { type: 'target', position: Position.Left, id: `${id}-value`, style: { width: '10px', height: '10px' } }
   ];
 
   const inputFields = [

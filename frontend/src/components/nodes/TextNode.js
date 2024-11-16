@@ -22,7 +22,7 @@ export const TextNode = ({ id, data }) => {
 
   // Define handles: Right side for output, Left side for each variable
   const handles = [
-    { type: 'source', position: Position.Right, id: 'output' },
+    { type: 'source', position: Position.Right, id: `${id}-output` },
     ...variables.map((variable) => ({
       type: 'target',
       position: Position.Left,
