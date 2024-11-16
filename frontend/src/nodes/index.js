@@ -1,5 +1,5 @@
 import { BaseNode } from "./BaseNode"
-import { CustomNode } from "./CustomNode"
+import { ActionNode } from "./ActionNode"
 import { InputNode } from "./InputNode"
 import { LLMNode } from "./LlmNode"
 import { OutputNode } from "./OutputNode"
@@ -12,7 +12,7 @@ import { AudioNode } from "./AudioNode"
 
 export {
     BaseNode,
-    CustomNode,
+    ActionNode,
     InputNode,
     LLMNode,
     OutputNode,

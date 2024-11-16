@@ -34,7 +34,7 @@ export const TextNode = ({ id, data }) => {
   const inputFields = [
     {
       name: 'text',
-      label: 'Text Input',
+      label: 'Text',
       type: 'textarea',
       onChange: setText,
       ref: textAreaRef,
