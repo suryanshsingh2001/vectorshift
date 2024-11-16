@@ -8,9 +8,9 @@ export const AudioNode = ({ id, data }) => {
     const [audioType, setAudioType] = useState(data?.type || 'MP3');
 
     const handles = [
-        { type: 'source', position: Position.Right, id: 'output', style: { background: 'blue', width: '10px', height: '10px' } },
-        { type: 'target', position: Position.Left, id: 'input', style: { background: 'green', width: '10px', height: '10px' } }
-    ];
+        { type: 'source', position: Position.Right, id: `${id}-output`, style: { background: 'red', width: '10px', height: '10px' } },
+        { type: 'target', position: Position.Left, id: `${id}-input`, style: { background: 'green', width: '10px', height: '10px' } }
+      ];
 
     const inputFields = [
         {

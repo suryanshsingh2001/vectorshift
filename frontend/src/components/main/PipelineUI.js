@@ -75,7 +75,7 @@ const selector = (state) => ({
   }, []);
 
   return (
-    <div ref={reactFlowWrapper} className="w-full h-[80vh]">
+    <div ref={reactFlowWrapper} className="w-full h-[80vh] bg-base-200">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -86,13 +86,13 @@ const selector = (state) => ({
         onDragOver={onDragOver}
         onInit={setReactFlowInstance}
         nodeTypes={nodeTypes}
-        proOptions={proOptions}
+        proOptions={proOptions} 
         snapGrid={[gridSize, gridSize]}
         connectionLineType='smoothstep'
       >
         <Background color="purple" gap={gridSize} />
         <Controls className=" rounded-lg shadow-md " />
-        <MiniMap className="bg-white rounded-lg shadow-md " />
+        <MiniMap className=" rounded-lg shadow-md " />
 
       </ReactFlow>
 
