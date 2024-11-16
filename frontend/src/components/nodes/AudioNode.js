@@ -33,7 +33,7 @@ export const AudioNode = ({ id, data }) => {
         }
     ];
 
-    const styles = "bg-blue-100 rounded-lg border border-blue-300";
+    const styles = "bg-orange-100 rounded-lg border border-blue-300";
 
     return (
         <BaseNode

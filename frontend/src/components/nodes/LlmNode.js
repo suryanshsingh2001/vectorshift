@@ -11,7 +11,7 @@ export const LLMNode = ({ id, data }) => {
       }
     },
     { type: 'target', position: Position.Left, id: `${id}-prompt`, style: { top: '66%', height: '10px', width: '10px' } },
-    { type: 'source', position: Position.Right, id: `${id}-response`, },
+    { type: 'source', position: Position.Right, id: `${id}-response`, style: { background: 'red', width: '10px', height: '10px' } },
   ];
 
   // LLMNode does not require any additional input fields

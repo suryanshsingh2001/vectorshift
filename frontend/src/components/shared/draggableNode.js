@@ -1,5 +1,22 @@
 import React, { useState } from 'react';
 
+
+
+/**
+ * DraggableNode Component
+ * 
+ * @param {string} type - The type of the node.
+ * @param {string} label - The label for the node.
+ * @param {React.Component} icon - The icon component to display inside the node.
+ * @param {string} category - The category of the node.
+ * @param {string} description - The description of the node, used as a tooltip.
+ * 
+ * @description
+ * The DraggableNode component represents a draggable node in a flowchart or graph.
+ * It allows users to drag and drop nodes onto a canvas. The component displays an icon,
+ * a label, and a tooltip with a description. It uses the `useState` hook to manage the
+ * dragging state and applies various Tailwind CSS classes for styling.
+ */
 export function DraggableNode({ type, label, icon: IconComponent, category, description }) {
   const [isDragging, setIsDragging] = useState(false);
   console.log(description);

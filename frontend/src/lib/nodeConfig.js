@@ -4,6 +4,21 @@ import { ChevronsLeftRight, Brain, ChevronsLeftRightEllipsis, Type, Image, Brace
 import { ActionNode, AudioNode, ImageNode, InputNode, JSONNode, LLMNode, OutputNode, TextNode, TimerNode } from '../components/nodes';
 
 
+
+/**
+ * Node configuration array
+ * 
+ * @description
+ * This array contains the configuration for different types of nodes used in the application.
+ * Each node configuration object includes the following properties:
+ * 
+ * @property {string} type - The unique type identifier for the node.
+ * @property {string} label - The label for the node.
+ * @property {React.Component} icon - The icon component to display for the node.
+ * @property {React.Component} component - The React component representing the node.
+ * @property {string} category - The category of the node (e.g., "main", "custom").
+ * @property {string} description - The description of the node, used as a tooltip.
+ */
 export const nodeConfig = [
     { type: 'customInput', label: 'Input', icon: ChevronsLeftRight, component: InputNode, category: "main", description: "Input node for the pipeline" },
     { type: 'llm', label: 'LLM', icon: Brain, component: LLMNode, category: "main", description: "LLM node for the pipeline" },

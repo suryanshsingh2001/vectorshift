@@ -21,12 +21,12 @@ export const TextNode = ({ id, data }) => {
 
   // Define handles: Right side for output, Left side for each variable
   const handles = [
-    { type: 'source', position: Position.Right, id: `${id}-output` },
+    { type: 'source', position: Position.Right, id: `${id}-output`, style: { background: 'red', width: '10px', height: '10px' } },
     ...variables.map((variable) => ({
       type: 'target',
       position: Position.Left,
       id: `var-${variable}`,
-      style: { top: `${20 + variables.indexOf(variable) * 20}px` },
+      style: { top: `${20 + variables.indexOf(variable) * 20}px`, background: 'green', width: '10px', height: '10px' },
     })),
   ];
 

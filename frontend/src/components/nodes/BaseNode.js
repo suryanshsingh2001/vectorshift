@@ -2,6 +2,28 @@ import { Handle } from 'reactflow';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+
+
+
+/**
+ * BaseNode Component
+ * 
+ * @param {string} id - The unique identifier for the node.
+ * @param {object} [data={}] - The data associated with the node.
+ * @param {string} [type='Node'] - The type of the node.
+ * @param {array} [handles=[]] - An array of handle objects for connecting the node.
+ * @param {array} [inputFields=[]] - An array of input field objects for the node.
+ * @param {boolean} [showNameInput=true] - Whether to show the name input field.
+ * @param {string|null} [message=null] - An optional message to display below the input fields.
+ * @param {string} [styles=''] - Additional Tailwind CSS classes to apply to the node.
+ * @param {ReactNode} children - Additional children elements to render inside the node.
+ * 
+ * @description
+ * The BaseNode component is a reusable React component designed to represent a node in a flowchart or graph.
+ * It uses the `reactflow` library for handling node connections and the `tailwind-merge` library for merging Tailwind CSS classes.
+ * The component supports various props to customize its behavior and appearance, including handles for connections,
+ * input fields for user interaction, and additional styles and children elements.
+ */
 export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null, styles = '', children }) => {
   const [currName, setCurrName] = useState(data?.name || id);
 
