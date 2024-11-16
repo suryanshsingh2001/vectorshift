@@ -6,11 +6,11 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <PipelineToolbar />
-      <main className="flex-grow ">
+      <main className="">
         <PipelineUI />
-        <SubmitButton />
-
       </main>
+
+      <SubmitButton />
     </div>
   );
 }

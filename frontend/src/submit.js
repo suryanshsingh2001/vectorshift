@@ -3,9 +3,10 @@ import { useStore } from './store';
 import { CheckCircle, XCircle, Circle, AlertTriangle } from 'lucide-react';
 
 export const SubmitButton = () => {
-  const { nodes, edges } = useStore((state) => ({
+  const { nodes, edges, resetNodes } = useStore((state) => ({
     nodes: state.nodes,
     edges: state.edges,
+    resetNodes: state.resetNodes,
   }));
 
   const [isLoading, setIsLoading] = useState(false);
@@ -31,26 +32,27 @@ export const SubmitButton = () => {
 
       const result = await response.json();
       setResult(result);
+      setIsModalOpen(true);
     } catch (error) {
       setError(error.message);
+      setIsModalOpen(true);
     } finally {
       setIsLoading(false);
-      setIsModalOpen(true);
     }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setResult(null);
-    setError(null);
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <button onClick={handleSubmit} className={`btn btn-primary text-white font-bold py-2 px-4 rounded ${isLoading ? 'loading' : ''}`}>
-        {isLoading ? 'Loading...' : 'Submit'}
+    <div className='flex flex-row items-center mx-auto gap-10'>
+      <button onClick={handleSubmit} className="btn btn-primary" disabled={isLoading}>
+        {isLoading ? 'Submitting...' : 'Submit'}
       </button>
-
+      <button onClick={resetNodes} className="btn btn-danger ml-2">
+        Reset
+      </button>
       {isModalOpen && (
         <div className="modal modal-open">
           <div className="modal-box">
