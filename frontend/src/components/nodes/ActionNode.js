@@ -1,4 +1,3 @@
-// frontend/src/nodes/ActionNode.js
 
 import { BaseNode } from './BaseNode';
 import { useState } from 'react';

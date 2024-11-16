@@ -1,4 +1,3 @@
-// frontend/src/nodes/NodeTypes.js
 
 import { nodeConfig } from "../lib/nodeConfig";
 

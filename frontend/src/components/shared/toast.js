@@ -1,4 +1,3 @@
-// frontend/src/components/Toast.js
 
 import React from 'react';
 

@@ -1,4 +1,3 @@
-// frontend/src/nodes/LLMNode.js
 
 import { BaseNode } from './BaseNode';
 import { Position } from 'reactflow';
@@ -12,7 +11,7 @@ export const LLMNode = ({ id, data }) => {
       }
     },
     { type: 'target', position: Position.Left, id: `${id}-prompt`, style: { top: '66%', height: '10px', width: '10px' } },
-    { type: 'source', position: Position.Right, id: `${id}-response`,  },
+    { type: 'source', position: Position.Right, id: `${id}-response`, },
   ];
 
   // LLMNode does not require any additional input fields

@@ -5,7 +5,7 @@ import { nodeConfig } from '../../lib/nodeConfig';
 import { DraggableNode } from '../shared/draggableNode';
 import { Settings } from 'lucide-react';
 
- const PipelineToolbar = () => {
+const PipelineToolbar = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,23 +17,23 @@ import { Settings } from 'lucide-react';
 
   return (
     <>
-    <div className="flex justify-between items-center bg-base-100 shadow-lg max-w-7xl mx-auto p-2">
-      <div className="flex space-x-2">
-        {filteredNodes.map(({ type, label, icon: IconComponent, category, description }) => (
-          <DraggableNode key={type} type={type} label={label} icon={IconComponent} category={category} description={description} />
-        ))}
+      <div className="flex justify-between items-center bg-base-100 shadow-lg max-w-7xl mx-auto p-2">
+        <div className="flex space-x-2">
+          {filteredNodes.map(({ type, label, icon: IconComponent, category, description }) => (
+            <DraggableNode key={type} type={type} label={label} icon={IconComponent} category={category} description={description} />
+          ))}
+        </div>
+        <div className='mx-5'>
+          <button
+            className="btn btn-circle btn-sm"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <Settings className="h-4 w-4" />
+          </button>
+
+        </div>
+
       </div>
-      <div className='mx-5'>
-        <button
-          className="btn btn-circle btn-sm"
-          onClick={() => setIsModalOpen(true)}
-        >
-          <Settings className="h-4 w-4" />
-        </button>
-      
-      </div>
-    
-    </div>
 
       {isModalOpen && (
         <div className="modal modal-open ">

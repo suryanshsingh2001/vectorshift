@@ -1,4 +1,3 @@
-// frontend/src/nodes/AudioNode.js
 
 import { BaseNode } from './BaseNode';
 import { useState } from 'react';
@@ -10,7 +9,7 @@ export const AudioNode = ({ id, data }) => {
     const handles = [
         { type: 'source', position: Position.Right, id: `${id}-output`, style: { background: 'red', width: '10px', height: '10px' } },
         { type: 'target', position: Position.Left, id: `${id}-input`, style: { background: 'green', width: '10px', height: '10px' } }
-      ];
+    ];
 
     const inputFields = [
         {

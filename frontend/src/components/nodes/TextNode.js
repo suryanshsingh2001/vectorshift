@@ -1,4 +1,3 @@
-// TextNode.js
 
 import { BaseNode } from './BaseNode';
 import { useEffect, useState, useRef } from 'react';

@@ -18,7 +18,7 @@ const selector = (state) => ({
   onConnect: state.onConnect,
 });
 
- const PipelineUI = () => {
+const PipelineUI = () => {
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const {
@@ -86,7 +86,7 @@ const selector = (state) => ({
         onDragOver={onDragOver}
         onInit={setReactFlowInstance}
         nodeTypes={nodeTypes}
-        proOptions={proOptions} 
+        proOptions={proOptions}
         snapGrid={[gridSize, gridSize]}
         connectionLineType='smoothstep'
       >

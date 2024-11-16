@@ -1,4 +1,3 @@
-// frontend/src/nodes/JSONNode.js
 
 import { BaseNode } from './BaseNode';
 import { useState, useRef } from 'react';
@@ -13,8 +12,8 @@ export const JSONNode = ({ id, data }) => {
   useAutosizeTextArea(textAreaRef.current, jsonData);
 
   const handles = [
-    { type: 'source', position: Position.Right, id: `${id}-output`, style: {  width: '10px', height: '10px' } },
-    { type: 'target', position: Position.Left, id: `${id}-input`, style: {  width: '10px', height: '10px' } }
+    { type: 'source', position: Position.Right, id: `${id}-output`, style: { width: '10px', height: '10px' } },
+    { type: 'target', position: Position.Left, id: `${id}-input`, style: { width: '10px', height: '10px' } }
   ];
 
   const inputFields = [
