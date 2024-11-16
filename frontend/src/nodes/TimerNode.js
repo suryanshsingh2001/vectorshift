@@ -55,6 +55,7 @@ export const TimerNode = ({ id, data }) => {
             type="Timer"
             handles={handles}
             inputFields={inputFields}
+            showNameInput={false}
             styles={styles}
         >
             <div className="flex flex-col items-center">

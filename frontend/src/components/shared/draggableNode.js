@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Icon from './components/icon';
 
 export const DraggableNode = ({ type, label, icon: IconComponent }) => {
   const [isDragging, setIsDragging] = useState(false);

@@ -1,18 +1,14 @@
-import React from 'react';
-import { DraggableNode } from './draggableNode';
-import { ChevronsLeftRight, Brain, ChevronsLeftRightEllipsis, Type, Hexagon, Image, Braces, Timer } from 'lucide-react';
+// frontend/src/toolbar.js
 
+import React from 'react';
+import { nodeConfig } from './lib/nodeConfig';
+import { DraggableNode } from './components/shared/draggableNode';
 export const PipelineToolbar = () => {
   return (
     <div className="flex space-x-2 bg-base-100 p-2 rounded-lg shadow-lg">
-      <DraggableNode type="customInput" label="Input" icon={ChevronsLeftRight} />
-      <DraggableNode type="llm" label="LLM" icon={Brain} />
-      <DraggableNode type="customOutput" label="Output" icon={ChevronsLeftRightEllipsis} />
-      <DraggableNode type="text" label="Text" icon={Type} />
-      <DraggableNode type="custom" label="Custom" icon={Hexagon} />
-      <DraggableNode type="image" label="Image" icon={Image} />
-      <DraggableNode type="json" label="JSON" icon={Braces} />
-      <DraggableNode type="timer" label="Timer" icon={Timer} />
+      {nodeConfig.map(({ type, label, icon: IconComponent }) => (
+        <DraggableNode key={type} type={type} label={label} icon={IconComponent} />
+      ))}
     </div>
   );
 };

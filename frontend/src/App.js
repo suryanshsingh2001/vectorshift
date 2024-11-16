@@ -8,9 +8,8 @@ function App() {
       <PipelineToolbar />
       <main className="flex-grow p-4 ">
         <PipelineUI />
-        <div className="flex flex-col items-center">
-          <SubmitButton />
-        </div>
+        <SubmitButton />
+
       </main>
     </div>
   );
