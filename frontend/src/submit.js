@@ -81,6 +81,9 @@ export const SubmitButton = () => {
                     )}
                     <p>Is DAG: {result.is_dag ? 'Yes' : 'No'}</p>
                   </div>
+                  <div className="flex items-center space-x-2">
+                    <p>{result.message}</p>
+                  </div>
                 </div>
               )
             )}

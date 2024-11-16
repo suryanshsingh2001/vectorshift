@@ -37,6 +37,9 @@ async def parse_pipeline(pipeline: Pipeline):
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
 
+    if num_nodes == 0:
+        return {'num_nodes': num_nodes, 'num_edges': num_edges, 'is_dag': True, 'message': 'The graph is empty.'}
+
     # Check if the graph is a DAG
     from collections import defaultdict, deque
 
@@ -60,5 +63,6 @@ async def parse_pipeline(pipeline: Pipeline):
                 queue.append(neighbor)
 
     is_dag = visited_count == num_nodes
+    message = 'The graph is a DAG.' if is_dag else 'The graph is not a DAG.'
 
-    return {'num_nodes': num_nodes, 'num_edges': num_edges, 'is_dag': is_dag}
+    return {'num_nodes': num_nodes, 'num_edges': num_edges, 'is_dag': is_dag, 'message': message}
