@@ -7,6 +7,7 @@ import { TextNode } from "./TextNode"
 import { TimerNode } from "./TimerNode"
 import { ImageNode } from "./ImageNode"
 import { JSONNode } from "./JSONNode"
+import { AudioNode } from "./AudioNode"
 
 
 export {
@@ -18,6 +19,6 @@ export {
     TextNode,
     TimerNode,
     ImageNode,
-    JSONNode
-
+    JSONNode,
+    AudioNode
 }

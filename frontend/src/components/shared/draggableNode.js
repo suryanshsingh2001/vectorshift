@@ -1,6 +1,7 @@
+import { Circle } from 'lucide-react';
 import React, { useState } from 'react';
 
-export const DraggableNode = ({ type, label, icon: IconComponent }) => {
+export const DraggableNode = ({ type, label, icon: IconComponent = null  }) => {
   const [isDragging, setIsDragging] = useState(false);
 
   const onDragStart = (event, nodeType) => {
@@ -23,7 +24,11 @@ export const DraggableNode = ({ type, label, icon: IconComponent }) => {
       onDragEnd={() => setIsDragging(false)}
       draggable
     >
-      <IconComponent className="text-gray-600 w-6 h-6" />
+
+      {IconComponent ?
+        <IconComponent className="text-gray-600 w-6 h-6" /> : <Circle className="text-gray-600 w-6 h-6" />
+
+      }
       <span className="text-gray-700 text-xs font-medium">{label}</span>
     </div>
   );

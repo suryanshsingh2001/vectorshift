@@ -1,5 +1,5 @@
 import { Handle } from 'reactflow';
-import { useState, } from 'react';
+import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFields = [], showNameInput = true, message = null, styles = '', children }) => {
@@ -46,35 +46,55 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
               <label htmlFor={field.name}>
                 {field.label}:
               </label>
-              {field.type === 'select' ? (
-                <select
-                  value={data[field.name]}
-                  onChange={(e) => field.onChange(e.target.value)}
-                  className="select select-bordered mt-1"
-                >
-                  {field.options.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              ) : field.type === 'textarea' ? (
-                <textarea
-                  ref={field.ref} // Use ref here for the auto-resizing effect
-                  placeholder="Enter Value"
-                  value={data[field.name]}
-                  onChange={(e) => field.onChange(e.target.value)}
-                  className="textarea p-2 mt-1 resize-none"
-                />
-              ) : (
-                <input
-                  placeholder="Enter Value"
-                  type={field.type}
-                  value={data[field.name]}
-                  onChange={(e) => field.onChange(e.target.value)}
-                  className="input input-bordered mt-1"
-                />
-              )}
+              {(() => {
+                switch (field.type) {
+                  case 'select':
+                    return (
+                      <select
+                        value={data[field.name]}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        className="select select-bordered mt-1"
+                      >
+                        {field.options.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                    );
+                  case 'textarea':
+                    return (
+                      <textarea
+                        ref={field.ref} // Use ref here for the auto-resizing effect
+                        placeholder="Enter Value"
+                        value={data[field.name]}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        className="textarea p-2 mt-1 resize-none"
+                      />
+                    );
+                  case 'range':
+                    return (
+                      <input
+                        type="range"
+                        min={field.min}
+                        max={field.max}
+                        value={data[field.name]}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        className="range mt-1"
+                      />
+                    );
+                  default:
+                    return (
+                      <input
+                        placeholder="Enter Value"
+                        type={field.type}
+                        value={data[field.name]}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        className="input input-bordered mt-1"
+                      />
+                    );
+                }
+              })()}
             </div>
           ))}
           {message && <div className="text-sm text-gray-400 mt-2">{message}</div>}
