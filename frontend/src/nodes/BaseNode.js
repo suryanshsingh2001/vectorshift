@@ -67,7 +67,7 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
                         placeholder="Enter Value"
                         value={data[field.name]}
                         onChange={(e) => field.onChange(e.target.value)}
-                        className="textarea p-2 resize-none"
+                        className="textarea p-2 resize-none overflow-hidden"
                       />
                     );
                   case 'range':
