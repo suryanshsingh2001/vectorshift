@@ -75,7 +75,7 @@ const selector = (state) => ({
   }, []);
 
   return (
-    <div ref={reactFlowWrapper} className="w-full h-[80vh] bg-base-200">
+    <div ref={reactFlowWrapper} className="w-full h-[80vh]">
       <ReactFlow
         nodes={nodes}
         edges={edges}
