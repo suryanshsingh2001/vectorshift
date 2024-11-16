@@ -3,7 +3,7 @@
 import { BaseNode } from './BaseNode';
 import { useState, useRef } from 'react';
 import { Position } from 'reactflow';
-import useAutosizeTextArea from '../hooks/resizeTextArea';
+import useAutosizeTextArea from '../../hooks/resizeTextArea';
 
 export const JSONNode = ({ id, data }) => {
   const [jsonData, setJsonData] = useState(data?.json || '{}');

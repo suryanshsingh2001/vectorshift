@@ -3,8 +3,8 @@
 import { BaseNode } from './BaseNode';
 import { useEffect, useState, useRef } from 'react';
 import { Position } from 'reactflow';
-import useAutosizeTextArea from '../hooks/resizeTextArea';
-import { extractVariables } from '../lib/utils';
+import useAutosizeTextArea from '../../hooks/resizeTextArea';
+import { extractVariables } from '../../lib/utils';
 
 export const TextNode = ({ id, data }) => {
   const [text, setText] = useState(data?.text || '');

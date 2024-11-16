@@ -3,7 +3,7 @@
 import { BaseNode } from './BaseNode';
 import { useState } from 'react';
 import { Position } from 'reactflow';
-import Toast from '../components/shared/toast';
+import Toast from '../shared/toast';
 export const ActionNode = ({ id, data }) => {
   const [customType, setCustomType] = useState(data?.type || 'Create');
   const [showToast, setShowToast] = useState(false);

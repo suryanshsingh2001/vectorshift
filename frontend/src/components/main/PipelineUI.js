@@ -3,7 +3,7 @@ import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from '../../data/store';
 import { shallow } from 'zustand/shallow';
 import 'reactflow/dist/style.css';
-import { nodeTypes } from '../../nodes/NodeTypes';
+import { nodeTypes } from '../../lib/NodeTypes';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
