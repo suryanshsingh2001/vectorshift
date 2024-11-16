@@ -1,32 +1,11 @@
 from fastapi import FastAPI, Form
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Dict
+from models import Node, Edge, Pipeline
+from middleware import add_middlewares
 
 app = FastAPI()
 
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Adjust this to your frontend URL
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
-class Node(BaseModel):
-    id: str
-    type: str
-    data: Dict
-
-class Edge(BaseModel):
-    id: str
-    source: str
-    target: str
-
-class Pipeline(BaseModel):
-    nodes: List[Node]
-    edges: List[Edge]
+add_middlewares(app)
 
 @app.get('/')
 def read_root():
