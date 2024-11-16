@@ -44,7 +44,10 @@ export const BaseNode = ({ id, data = {}, type = 'Node', handles = [], inputFiel
             position={handle.position}
             id={`${id}-${handle.id}`}
             style={handle.style}
-          />
+          >
+            {handle.text && <div className="flex flex-row justify-end mt-2 text-primary font-bold">{handle.text}</div>}
+
+          </Handle>
         ))}
         <div className="card-title flex justify-between items-center mb-4">
           <span className="text-gray-600 font-medium">{type}</span>

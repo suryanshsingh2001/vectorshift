@@ -26,7 +26,8 @@ export const TextNode = ({ id, data }) => {
       type: 'target',
       position: Position.Left,
       id: `var-${variable}`,
-      style: { top: `${20 + variables.indexOf(variable) * 20}px`, background: 'green', width: '10px', height: '10px' },
+      text: variable,
+      style: { top: `${20 + variables.indexOf(variable) * 50}px`, background: 'purple', width: '10px', height: '10px' },
     })),
   ];
 
